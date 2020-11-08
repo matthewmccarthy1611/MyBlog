@@ -22,4 +22,15 @@ class SessionsController < ApplicationController
             redirect_to '/login'
         end
     end
+
+    def google
+        # @user = User.find_by_or_create_by(email:) do |user|
+        binding.pry
+    end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
+    end
 end

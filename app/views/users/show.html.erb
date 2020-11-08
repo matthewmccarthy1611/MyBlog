@@ -1,4 +1,8 @@
 <h1><%= @user.username %></h1>
 
+<% @user.posts.each do |post| %>
+    <%= link_to post.content, post_path(post) %>
+<% end %>
+
 
 <%= link_to "Logout", logout_path, method: "delete" %>

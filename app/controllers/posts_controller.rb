@@ -2,7 +2,13 @@ class PostsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
-        @posts = Post.all
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @posts = @user.posts
+            # binding.pry
+        else
+            flash[:alert] = "That user does not exist." if params[:user_id]
+            @posts = Post.all
+        end
     end
 
     def show

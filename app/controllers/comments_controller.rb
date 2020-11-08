@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
             # binding.pry
         end
     end
-    #Show comments for specific post
+
     def show
         redirect_to posts_path
     end
