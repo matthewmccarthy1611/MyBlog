@@ -12,6 +12,13 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   resources :comments
-  resources :users
-  resources :posts
+  resources :users do
+    resources :posts, only: [:new, :create, :index]
+  end
+  resources :posts do
+    resources :comments, only: [:new, :create, :index, :show]
+  end
+
+
+
 end

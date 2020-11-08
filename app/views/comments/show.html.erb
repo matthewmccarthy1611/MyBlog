@@ -1,0 +1,5 @@
+<h1>All Comments for <%= @post.title %></h1>
+
+<% @comments.each do |c| %>
+    <li><strong><%= c.user.username %></strong> says <%= link_to c.content, post_path(c.post_id) %></li>
+<% end %>

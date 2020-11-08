@@ -1,0 +1,17 @@
+<% if @post %>
+    <h1>New Comment for <%= @post.title %></h1>
+<% else %>
+    <h1>New Comment!</h1>
+<% end %>
+
+<%= form_for(@comment) do |f| %>
+
+        <%= f.label :post %>
+        <%= f.collection_select :post_id, Post.all, :id, :title %>
+
+
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+
+    <%= f.submit %>
+<% end %>

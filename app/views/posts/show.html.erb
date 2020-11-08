@@ -1,0 +1,16 @@
+<h1><%= @post.title %></h1>
+
+<h3>By <%= @post.user.username %></h3>
+Category: <%= @post.category.name %><br>
+
+<p><%= @post.content %></p>
+
+<p><%= link_to "See All Comments", post_comments_path(@post) %></p>
+<p><%= link_to "Add A Comment", new_post_comment_path(@post) %></p>
+
+<h4>Comments:</h4>
+
+
+<% @post.comments.each do |c| %>
+    <li><strong><%= c.user.username %></strong> says <%= link_to c.content, comments_path %></li>
+<% end %>

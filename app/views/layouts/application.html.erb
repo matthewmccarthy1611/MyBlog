@@ -12,10 +12,19 @@
   <body>
     <div>
       <% if logged_in? %>
+        <%= link_to "Add a Post", new_post_path %> |
+        <%= link_to "Add a Comment", new_comment_path %> |
+        <%= link_to "All Comments", comments_path %> |
+        <%= link_to "All Posts", posts_path %> |
         <%= link_to "Logout", logout_path, method: "delete" %>  
       <% else %>
         <%= link_to "Signup", signup_path %> |
         <%= link_to "Login", login_path %> 
+      <% end %>
+    </div>
+    <div>
+      <% if flash[:alert] %>
+        <%= flash[:alert] %>
       <% end %>
     </div>
     <%= yield %>
